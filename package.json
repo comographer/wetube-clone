@@ -2,15 +2,20 @@
   "name": "wetube-clone",
   "version": "1.0.0",
   "description": "Clone project of YouTube",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/comographer/wetube-clone.git"
+  },
+  "scripts": {
+    "win": "node index.js"
   },
   "author": "Comographer<kimgeunmo@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/comographer/wetube-clone/issues"
   },
-  "homepage": "https://github.com/comographer/wetube-clone#readme"
+  "homepage": "https://github.com/comographer/wetube-clone#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }
