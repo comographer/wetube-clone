@@ -2,5 +2,8 @@ extends base.pug
 
 block content   
     h2 Welcome! Here, you will see Trending Videos
-    input(placeholder="What's your name")
-    button Send
+    ul 
+        each video in videos 
+            li=video
+        else 
+            li Sorry. Nothing found
