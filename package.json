@@ -7,7 +7,7 @@
     "url": "git+https://github.com/comographer/wetube-clone.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/app.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "author": "Comographer<kimgeunmo@gmail.com>",
   "license": "MIT",
