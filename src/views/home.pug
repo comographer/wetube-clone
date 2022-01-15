@@ -2,8 +2,6 @@ extends base
 include mixins/video
 
 block content   
-    h2 Welcome! Here, you will see Trending Videos
-    
     each video in videos 
         +video(video)
     else 

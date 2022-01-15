@@ -3,7 +3,7 @@ import Video from "../models/Videos";
 export const home = async (req, res) => {
   try {
     const videos = await Video.find({});
-    return res.render("home", { pageTitle: "Home", vides });
+    return res.render("home", { pageTitle: "Home", videos });
   } catch (error) {
     return res.render("404", { error });
   }
@@ -30,6 +30,22 @@ export const getUpload = (req, res) => {
 };
 
 export const postUpload = (req, res) => {
-  const { title } = req.body;
+  const { title, description, hashtags } = req.body;
+  const video = new Video({
+    title,
+    description,
+    createdAt: Date.now(),
+    hashtags: hashtags
+      .replace(/\s/g, "")
+      .split(",")
+      .map((word) => word.toLowerCase())
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => `#${word}`),
+    meta: {
+      views: 0,
+      rating: 0,
+    },
+  });
+  console.log(video);
   return res.redirect("/");
 };
