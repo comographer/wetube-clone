@@ -9,9 +9,11 @@ export const home = async (req, res) => {
   }
 };
 
-export const watch = (req, res) => {
+export const watch = async (req, res) => {
   const { id } = req.params;
-  return res.render("watch", { pageTitle: `Watching` });
+  const video = await Video.findById(id);
+  console.log(video);
+  return res.render("watch", { pageTitle: video.title, video });
 };
 
 export const getEdit = (req, res) => {
@@ -36,7 +38,6 @@ export const postUpload = async (req, res) => {
       title,
       description,
       hashtags: hashtags
-        .replace(/\s/g, "")
         .split(",")
         .map((word) => word.toLowerCase())
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
