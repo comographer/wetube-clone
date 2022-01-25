@@ -30,6 +30,9 @@ app.use(
 
 app.use(localsMiddleware);
 
+// Static
+app.use("/uploads", express.static("uploads"));
+
 // Connection to routers
 app.use("/", rootRouter);
 app.use("/users", userRouter);
