@@ -39,3 +39,5 @@
 - `/:id/edit`, `getEdit` & `postEdit` controllers
 - `/:id/delete`, `deleteVideo` controller
 - `/upload`, `getUplaod` & `postUpload` controllers
+
+<!-- To add controllers explanation -->
