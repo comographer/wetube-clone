@@ -32,6 +32,7 @@ app.use(localsMiddleware);
 
 // Static
 app.use("/uploads", express.static("uploads"));
+app.use("/assets", express.static("assets"));
 
 // Connection to routers
 app.use("/", rootRouter);
