@@ -65,15 +65,15 @@ export const postUpload = async (req, res) => {
   const {
     user: { _id },
   } = req.session;
-  const {
-    body: { title, description, hashtags },
-    file: { path: fileUrl },
-  } = req;
+  const { video, thumb } = req.files;
+  console.log(video, thumb);
+  const { title, description, hashtags } = req.body;
   try {
     const newVideo = await Video.create({
       title,
       description,
-      fileUrl,
+      fileUrl: video[0].path,
+      thumbUrl: thumb[0].path,
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
@@ -82,6 +82,7 @@ export const postUpload = async (req, res) => {
     user.save();
     return res.redirect("/");
   } catch (error) {
+    console.log(error);
     return res.status(400).render("upload", {
       pageTitle: "Upload Video",
       errorMessage: error._message,
