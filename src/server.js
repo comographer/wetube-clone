@@ -20,6 +20,7 @@ app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 // Middleware to allow access to req.body
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // Middleware to send cookie to browser
 app.use(
   session({
