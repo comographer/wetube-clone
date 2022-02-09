@@ -115,6 +115,7 @@ const handleMouseLeave = () => {
 };
 
 const handleKeyPress = (e) => {
+  if (e.target.matches("textarea")) return;
   switch (e.keyCode) {
     case 32:
       handlePlayClick();
